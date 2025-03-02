@@ -6,8 +6,8 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 const config = {
   entry: {
-    index: "./src/main.js",
-    style: "./src/style.css",
+    index: "./src/js/modules/main.js",
+    style: "./src/assets/style.css",
   },
   devtool: "inline-source-map",
   devServer: {
@@ -17,7 +17,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./src/js/modules/index.html",
       inject: "body",
     }),
     new MiniCssExtractPlugin({
@@ -63,14 +63,6 @@ const config = {
         },
       },
     ],
-  },
-  optimization: {
-    splitChunks: {
-      chunks: "all",
-    },
-    runtimeChunk: "single",
-    minimize: true,
-    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
 };
 
