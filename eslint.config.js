@@ -1,16 +1,29 @@
-// eslint.config.js
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import pluginReact from "eslint-plugin-react";
+
+/** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
-  {
-    ignores: ["node_modules", "dist"],
-  },
+  { files: ["**/*.{js,mjs,cjs,jsx}"] },
   {
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
+      globals: {
+        ...globals.browser, // Para frontend
+        ...globals.node, // Agregar soporte para Node.js
+      },
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module", // Si usas import/export en lugar de require
+      },
     },
-    rules: {
-      "no-unused-vars": "warn",
-      "no-console": "off",
+  },
+  pluginJs.configs.recommended,
+  pluginReact.configs.flat.recommended,
+  {
+    settings: {
+      react: {
+        version: "detect",
+      },
     },
   },
 ];
