@@ -1,27 +1,21 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
 
-const config = {
+module.exports = {
+  mode: "development",
   entry: {
-    index: "./src/js/modules/main.js",
-    style: "./src/assets/style.css",
+    index: "./src/main.js",
+    style: "./src/assets/styles.css",
   },
   devtool: "inline-source-map",
   devServer: {
-    static: "./src",
+    static: "./dist",
     hot: true,
     liveReload: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/js/modules/index.html",
-      inject: "body",
-    }),
-    new MiniCssExtractPlugin({
-      filename: "[name].bundle.css",
+      template: "./src/index.html",
     }),
   ],
   output: {
@@ -32,13 +26,8 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(js)$/,
-        exclude: /node_modules/,
-        use: ["babel-loader"],
-      },
-      {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -64,6 +53,7 @@ const config = {
       },
     ],
   },
+  optimization: {
+    runtimeChunk: "single",
+  },
 };
-
-module.exports = config;

@@ -1,5 +1,5 @@
 body {
-  color: rgb(255, 255, 255);
+  color: rgb(255 255 255);
   margin: 0;
 }
 
@@ -13,10 +13,11 @@ body::before {
   background-size: cover;
   z-index: -1;
 
-  /* background-image: url(" "); */
-
+  /* background-image:
+    linear-gradient(115deg, rgba(54, 178, 235, 0.5), rgba(9, 86, 228, 0.5)),
+    url(./geometry-1023846_1920.jpg);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 
 h1 {
@@ -29,10 +30,10 @@ h1 {
 }
 
 p {
-  font-family: "Italianno", cursive;
+  font-family: Italianno, cursive;
   font-weight: 300;
   text-align: center;
-  margin: 5px auto 50px auto;
+  margin: 5px auto 50px;
   padding: 0;
   font-size: 1.5em;
 }
@@ -40,7 +41,7 @@ p {
 #survey-form {
   width: 60%;
   margin: 0 auto;
-  background-color: rgba(3, 3, 17, 0.5);
+  background-color: rgb(3 3 17 / 50%);
   padding: 2em;
   border-radius: 0.5em;
   max-width: 800px;
@@ -59,22 +60,22 @@ textarea {
   display: block;
   width: 100%;
   padding: 0.2em;
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
   border: none;
   min-height: 1em;
   border-radius: 0.5em;
   font-size: 1.2em;
-  font-family: "Italianno", cursive;
-  color: rgb(244, 244, 244);
-  background-color: rgba(40, 45, 133, 0.5);
+  font-family: Italianno, cursive;
+  color: rgb(244 244 244);
+  background-color: rgb(40 45 133 / 50%);
 }
 
 label {
   display: block;
   margin: 0.5em 0;
   font-size: 1.2em;
-  font-family: "Italianno", cursive;
-  color: rgb(244, 244, 244);
+  font-family: Italianno, cursive;
+  color: rgb(244 244 244);
   font-weight: bolder;
 }
 
@@ -82,16 +83,25 @@ label {
   display: inline-block;
   width: unset;
   margin: 0 0.3em;
-  padding: 0.2em;
+  padding: 10px;
   vertical-align: middle;
 }
 
 input[type="submit"] {
   display: block;
   width: 25vw;
-  margin: auto;
-  padding: 0.5em;
-  color: rgb(0, 0, 0);
-  background-color: rgb(195, 185, 174);
-  border-color: rgb(0, 0, 0);
+  margin: 10px;
+  padding: 10px;
+  color: rgb(0 0 0);
+  background-color: rgb(195 185 174);
+  border-color: rgb(0 0 0);
+  font-weight: bolder;
+}
+
+#message-container {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
 }
