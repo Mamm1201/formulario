@@ -2,8 +2,8 @@
   "connector": {
     "name": "local",
     "options": {
-      "pattern": ["**", "!.git/**", "!node_modules/**"]
-    }
+      "pattern": ["**", "!.git/**", "!node_modules/**"],
+    },
   },
   "extends": ["development"],
   "formatters": ["stylish"],
@@ -13,6 +13,6 @@
     "html-checker",
     "meta-charset-utf-8",
     "meta-viewport",
-    "no-inline-styles:error"
-  ]
+    "no-inline-styles:error",
+  ],
 }

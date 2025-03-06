@@ -1,5 +1,6 @@
 export default function setupFormHandler() {
   const form = document.getElementById("survey-form");
+  const messageContainer = document.getElementById("message-container");
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -15,6 +16,7 @@ export default function setupFormHandler() {
       'type[name="checkbox"] : checked'
     );
     const comments = document.getElementById("comments").value;
+
     if (
       name &&
       email &&
@@ -24,11 +26,13 @@ export default function setupFormHandler() {
       checkboxes.length > 0 &&
       comments
     ) {
-      alert("Form submitted successfully!");
-
-      form.reset();
+      messageContainer.textContent = "FORMULARIO ENVIADO CON EXITO";
+      messageContainer.style.color = "green"; // estilo para el mensaje de exito
+      form.reset(); // opcional resetea el formulario despues de enviarlo
     } else {
-      alert("Please fill out all required fields.");
+      messageContainer.textContent =
+        "Por favor, complete todos los campos requeridos.";
+      messageContainer.style.color = "red"; // estilo para el mensaje de error
     }
   });
 }
